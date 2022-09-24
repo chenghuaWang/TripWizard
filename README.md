@@ -1,16 +1,8 @@
-# trip_wizard
+# [2022-2023 Fall] SWE HW2. Trip Wizard.
 
-A Trip Advisor Like App. But focus on question-and-answer for tourists.
+This repo is for 2022-2023 Fall software engineering lecture. Paired Project.
 
-## Getting Started
+This project implemented the front end of a Trip Advisor Like App. But focus on question-and-answer and short video for travelers.
 
-This project is a starting point for a Flutter application.
+## dependencies
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
