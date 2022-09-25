@@ -54,8 +54,8 @@ class _MainScreenState extends State<MainScreen> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget> [
-                barIcon(icon: Icons.video_library, page: 1, tip: "媒体"),
-                const Text("媒体",
+                barIcon(icon: Icons.video_library, page: 1, tip: "旅拍"),
+                const Text("旅拍",
                     style: TextStyle(color: Colors.black54,
                         fontSize: 12.0,
                         fontWeight: FontWeight.w600)),

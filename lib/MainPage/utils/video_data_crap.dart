@@ -23,6 +23,17 @@ class VideoDataPayload {
  // automatic cached data
  late var upAvatar;
  late var videoHeadPic;
+
+ VideoDataPayload(
+     this.upName,
+     this.upAvatar,
+     this.upNumber,
+     this.videoHeadPicUrl,
+     this.videoStreamUrl,
+     this.videoId,
+     this.location,
+     this.city
+ );
 }
 
 class VideoDataMaintainer {
