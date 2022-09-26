@@ -25,7 +25,7 @@ class VideoPage extends StatelessWidget {
                 const SizedBox(width: 10),
                 Container(
                   height: 35,
-                  width: 218,
+                  width: 188,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(20),
@@ -66,10 +66,34 @@ class VideoPage extends StatelessWidget {
         actions: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: const Icon(
-              Icons.add,
-              color: Colors.teal,
-            ),
+            child: PopupMenuButton<String>(
+              color: Constants.lightTheme.backgroundColor,
+              icon: const Icon(
+                Icons.add,
+                color: Colors.teal,
+              ),
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                PopupMenuItem(
+                  value: 'Push',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const <Widget>[
+                      Icon(
+                        Icons.file_upload,
+                        color: Colors.teal,
+                        size: 16,
+                      ),
+                      Text(
+                        '发布视频',
+                        style: TextStyle(
+                          fontSize: 14
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ]
+            )
           )
         ],
         elevation: 0.0,

@@ -13,7 +13,6 @@ class ExploreGrids extends StatefulWidget {
 class _ExploreGridsState extends State<ExploreGrids> {
   @override
   Widget build(BuildContext context) {
-    double videoWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: MasonryGridView.count(
@@ -31,7 +30,7 @@ class _ExploreGridsState extends State<ExploreGrids> {
                   "name",
                   "name",
                   '''
-                  <iframe width="$videoWidth" src="https://player.bilibili.com/player.html?aid=80433022&bvid=BV1GJ411x7h7&cid=137649199&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                  <iframe src="https://player.bilibili.com/player.html?aid=80433022&bvid=BV1GJ411x7h7&cid=137649199&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
                   ''',
                   "name",
                   "name",

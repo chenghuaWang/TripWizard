@@ -4,6 +4,7 @@ import 'package:trip_wizard/MainPage/widget/icon_badge.dart';
 // import other layers.
 import 'package:trip_wizard/MainPage/layers/home_layer.dart';
 import 'package:trip_wizard/MainPage/layers/video_layer.dart';
+import 'package:trip_wizard/MainPage/layers/usr_layer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,6 +19,8 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // If login, it will enter in the main page. And we need to drop
+    // the login page in the rendering stack of this app.
     return Scaffold(
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
@@ -28,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
           Home(),
           VideoPage(),
           Home(),
-          Home(),
+          UsrPage(),
         ]
       ),
       bottomNavigationBar: BottomAppBar(
