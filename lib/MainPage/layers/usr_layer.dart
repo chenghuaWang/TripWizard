@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trip_wizard/LoginPage/utils/bubble_indicator_painter.dart';
 
 import 'package:trip_wizard/MainPage/layers/usr_detail.dart';
 
@@ -90,7 +89,7 @@ class _UsrPageState extends State<UsrPage> with SingleTickerProviderStateMixin{
                         SizedBox(width: 10),
                         TextButton(
                           child: Icon(
-                            Icons.add,
+                            Icons.add_box_outlined,
                             color: Colors.white,
                           ),
                           onPressed: () {},
@@ -174,8 +173,97 @@ class _UsrPageState extends State<UsrPage> with SingleTickerProviderStateMixin{
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: 16,
+                height: 24,
               ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFCFCFF),
+                    boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 8)],
+                    borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: 0,
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 12,
+                            height: 0,
+                          ),
+                          Icon(Icons.group, color: Colors.teal,),
+                          SizedBox(
+                            width: 12,
+                            height: 0,
+                          ),
+                          Text(
+                              '加入的群组'
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 12,
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text(
+                                'test',
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text('test'),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text('test'),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text('test'),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text('test'),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text('test'),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(5.0),
+                              height: 20.0,
+                              width: 80.0,
+                              child: Text('test'),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              )
               // TODO add 打卡，勋章墙，加入的群组
             ],
           ),

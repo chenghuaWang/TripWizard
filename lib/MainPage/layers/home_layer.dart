@@ -11,9 +11,11 @@ class Home extends StatelessWidget {
         backgroundColor: Constants.lightTheme.backgroundColor,
         leading: Container(
           padding: const EdgeInsets.only(top: 10.0),
-          child: const Icon(
-            Icons.subject,
-            color: Colors.black38,
+          child: IconButton(
+            icon: const Icon(Icons.subject, color: Colors.black38,),
+            onPressed: () {
+
+            },
           ),
         ),
         title: Padding(

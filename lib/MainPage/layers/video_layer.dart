@@ -13,9 +13,11 @@ class VideoPage extends StatelessWidget {
         backgroundColor: Constants.lightTheme.backgroundColor,
         leading: Container(
           padding: const EdgeInsets.only(top: 10.0),
-          child: const Icon(
-            Icons.subject,
-            color: Colors.black38,
+          child: IconButton(
+            icon: const Icon(Icons.subject, color: Colors.black38,),
+            onPressed: () {
+
+            },
           ),
         ),
         title: Padding(
@@ -67,6 +69,9 @@ class VideoPage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: PopupMenuButton<String>(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))
+              ),
               color: Constants.lightTheme.backgroundColor,
               icon: const Icon(
                 Icons.add,

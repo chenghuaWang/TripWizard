@@ -5,6 +5,7 @@ import 'package:trip_wizard/MainPage/widget/icon_badge.dart';
 import 'package:trip_wizard/MainPage/layers/home_layer.dart';
 import 'package:trip_wizard/MainPage/layers/video_layer.dart';
 import 'package:trip_wizard/MainPage/layers/usr_layer.dart';
+import 'package:trip_wizard/MainPage/layers/social_layer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -30,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
         children: const [
           Home(),
           VideoPage(),
-          Home(),
+          SocialPage(),
           UsrPage(),
         ]
       ),

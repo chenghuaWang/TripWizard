@@ -8,7 +8,6 @@ import 'package:trip_wizard/MainPage/utils/video_data_crap.dart';
 // Widget. Video Player
 import 'package:trip_wizard/MainPage/widget/video_player.dart';
 
-import 'package:trip_wizard/LoginPage/widget/snakbar.dart';
 
 class VideoDetails extends StatelessWidget {
 
@@ -84,7 +83,10 @@ class VideoDetails extends StatelessWidget {
       ),
       body: Column(
         children: [
-          VideoPlayer4BiliBili(data.videoStreamUrl)
+          SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: VideoPlayer4BiliBili(data.videoStreamUrl),
+          )
         ],
       ),
     );
