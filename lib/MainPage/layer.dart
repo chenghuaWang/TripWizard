@@ -6,6 +6,7 @@ import 'package:trip_wizard/MainPage/layers/home_layer.dart';
 import 'package:trip_wizard/MainPage/layers/video_layer.dart';
 import 'package:trip_wizard/MainPage/layers/usr_layer.dart';
 import 'package:trip_wizard/MainPage/layers/social_layer.dart';
+import 'package:trip_wizard/MainPage/layers/map_layer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -31,6 +32,7 @@ class _MainScreenState extends State<MainScreen> {
         children: const [
           Home(),
           VideoPage(),
+          MapPage(),
           SocialPage(),
           UsrPage(),
         ]
@@ -70,7 +72,19 @@ class _MainScreenState extends State<MainScreen> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget> [
-                barIcon(icon: Icons.question_answer, page: 2, badge: false, tip: "社区"),
+                barIcon(icon: Icons.map_sharp, page: 2, tip: "地图"),
+                const Text("地图",
+                    style: TextStyle(color: Colors.black54,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(height: 7,),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget> [
+                barIcon(icon: Icons.question_answer, page: 3, badge: false, tip: "社区"),
                 const Text("社区",
                     style: TextStyle(color: Colors.black54,
                         fontSize: 12.0,
@@ -82,7 +96,7 @@ class _MainScreenState extends State<MainScreen> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget> [
-                barIcon(icon: Icons.person, page: 3, tip: "个人主页"),
+                barIcon(icon: Icons.person, page: 4, tip: "个人主页"),
                 const Text("个人主页",
                     style: TextStyle(color: Colors.black54,
                         fontSize: 12.0,

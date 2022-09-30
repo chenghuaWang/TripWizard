@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
 
-class UsrDetails extends StatefulWidget {
-  const UsrDetails({super.key});
+class MapLocationDetails extends StatefulWidget {
+  MapLocationDetails(this.Title, {super.key});
+
+  String Title = "";
 
   @override
-  _UsrDetailsState createState() => _UsrDetailsState();
+  _MapLocationState createState() => _MapLocationState(Title);
 }
 
-class _UsrDetailsState extends State<UsrDetails> with SingleTickerProviderStateMixin{
+class _MapLocationState extends State<MapLocationDetails> with SingleTickerProviderStateMixin {
 
+  String Title = "";
   late TabController tabController;
 
-  @override
-  void initState() {
-    super.initState();
-    tabController = TabController(length: 3, vsync: this);
-  }
-
-  @override
-  void dispose(){
-    super.dispose();
-    tabController.dispose();
-  }
+  _MapLocationState(this.Title);
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +28,9 @@ class _UsrDetailsState extends State<UsrDetails> with SingleTickerProviderStateM
             backgroundColor: Colors.teal,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                'Gloria',
+                Title,
                 style: TextStyle(
-                  fontFamily: 'WorkSansSemiBold'
+                    fontFamily: 'WorkSansSemiBold'
                 ),
               ),
               background: Image(
@@ -48,22 +41,22 @@ class _UsrDetailsState extends State<UsrDetails> with SingleTickerProviderStateM
           ),
           SliverPersistentHeader(
             pinned: true,
-            delegate: StickyTabBarDelegate(
+            delegate: MapStickyTabBarDelegate(
               child: TabBar(
                 labelColor: Colors.black,
                 controller: this.tabController,
                 tabs: <Widget>[
                   Tab(
                     child: Text(
-                      '动态',
+                      '评价',
                       style: TextStyle(
-                        color: Colors.teal
+                          color: Colors.teal
                       ),
                     ),
                   ),
                   Tab(
                     child: Text(
-                      '创作',
+                      '动态',
                       style: TextStyle(
                           color: Colors.teal
                       ),
@@ -95,12 +88,24 @@ class _UsrDetailsState extends State<UsrDetails> with SingleTickerProviderStateM
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    tabController.dispose();
+  }
 }
 
-class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
+class MapStickyTabBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar child;
 
-  StickyTabBarDelegate({required this.child});
+  MapStickyTabBarDelegate({required this.child});
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {

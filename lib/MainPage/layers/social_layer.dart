@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:trip_wizard/MainPage/utils/const.dart';
 
+// import details page. Build method.
+import 'package:trip_wizard/MainPage/layers/social_hot_details.dart';
+import 'package:trip_wizard/MainPage/layers/social_recommend_details.dart';
+import 'package:trip_wizard/MainPage/layers/social_star_details.dart';
+
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
 
@@ -8,7 +13,8 @@ class SocialPage extends StatefulWidget {
   _SocialPageState createState() => _SocialPageState();
 }
 
-class _SocialPageState extends State<SocialPage> with SingleTickerProviderStateMixin{
+class _SocialPageState extends State<SocialPage>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context){
     return DefaultTabController(
@@ -129,9 +135,7 @@ class _SocialPageState extends State<SocialPage> with SingleTickerProviderStateM
   }
 
   Widget _buildHotDetails(BuildContext context) {
-    return Column(
-      
-    );
+    return SocialHotDetails();
   }
 
   Widget _buildRecommendDetails(BuildContext context) {
