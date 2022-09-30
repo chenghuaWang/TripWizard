@@ -238,7 +238,7 @@ class _MapPageState extends State<MapPage> with SingleTickerProviderStateMixin {
             icon: const Icon(
               Icons.restaurant,
               color: Colors.orange,
-              size: 16,
+              size: 13,
             ),
             tooltip: v["Name"],
           ),

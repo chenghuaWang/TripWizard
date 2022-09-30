@@ -15,6 +15,57 @@ class _MapLocationState extends State<MapLocationDetails> with SingleTickerProvi
   late TabController tabController;
 
   _MapLocationState(this.Title);
+  Widget _buildCommentBox() {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: const BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.all(Radius.circular(18.0)),
+      ),
+      child: Row(
+        children: <Widget> [
+          CircleAvatar(
+            backgroundImage: AssetImage(
+              'assets/images/avatar.jpg',
+            ),
+            radius: 32,
+          ),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Text(Title)
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(Icons.star, color: Colors.redAccent,),
+                  Icon(Icons.star, color: Colors.redAccent,),
+                  Icon(Icons.star, color: Colors.redAccent,),
+                  Icon(Icons.star, color: Colors.redAccent,),
+                  Icon(Icons.star, color: Colors.redAccent,),
+                ],
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildComment() {
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          children: [
+            _buildCommentBox(),
+          ],
+        ),
+      )
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +80,9 @@ class _MapLocationState extends State<MapLocationDetails> with SingleTickerProvi
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 Title,
-                style: TextStyle(
-                    fontFamily: 'WorkSansSemiBold'
+                style: const TextStyle(
+                  fontFamily: 'WorkSansSemiBold',
+                  color: Colors.white
                 ),
               ),
               background: Image(
@@ -44,8 +96,8 @@ class _MapLocationState extends State<MapLocationDetails> with SingleTickerProvi
             delegate: MapStickyTabBarDelegate(
               child: TabBar(
                 labelColor: Colors.black,
-                controller: this.tabController,
-                tabs: <Widget>[
+                controller: tabController,
+                tabs: const <Widget>[
                   Tab(
                     child: Text(
                       '评价',
@@ -76,9 +128,9 @@ class _MapLocationState extends State<MapLocationDetails> with SingleTickerProvi
           ),
           SliverFillRemaining(
             child: TabBarView(
-              controller: this.tabController,
+              controller: tabController,
               children: <Widget>[
-                Center(child: Text('Content of Home')),
+                Center(child: _buildComment()),
                 Center(child: Text('Content of Profile')),
                 Center(child: Text('Content of Profile')),
               ],
@@ -109,14 +161,14 @@ class MapStickyTabBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return this.child;
+    return child;
   }
 
   @override
-  double get maxExtent => this.child.preferredSize.height;
+  double get maxExtent => child.preferredSize.height;
 
   @override
-  double get minExtent => this.child.preferredSize.height;
+  double get minExtent => child.preferredSize.height;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
