@@ -3,6 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:trip_wizard/LoginPage/login_theme.dart';
 import 'package:trip_wizard/LoginPage/widget/snakbar.dart';
 
+import 'dart:convert';
+import 'dart:io';
+
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
 
@@ -254,14 +257,54 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  void _toggleSignUpButton() {
-    CustomSnackBar(
-        context,
-        const Text('正在注册'),
-        backgroundColor: Colors.lightGreen
-    );
-    Navigator.of(context).pop('/login');
-    Navigator.of(context).pushNamed('/main');
+  Future<void> _toggleSignUpButton() async {
+    Future<bool> conce = _login_http_post();
+    if (await conce) {
+      CustomSnackBar(
+          context,
+          const Text('正在注册'),
+          backgroundColor: Colors.lightGreen
+      );
+      Navigator.of(context).pop('/login');
+      Navigator.of(context).pushNamed('/main');
+    } else {
+      CustomSnackBar(
+          context,
+          const Text('注册失败'),
+          backgroundColor: Colors.redAccent
+      );
+    }
+  }
+
+  Future<bool> _login_http_post() async {
+    HttpClient client = new HttpClient();
+    client.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
+
+    String url ='https://ketnekonas.hopto.org:21669/logup/';
+
+    Map map = {
+      "Name": signupNameController.text,
+      "Password" : signupPasswordController.text,
+      "Phone": signupEmailController.text,
+    };
+
+    HttpClientRequest request = await client.postUrl(Uri.parse(url));
+
+    request.headers.set('content-type', 'application/json');
+
+    request.add(utf8.encode(json.encode(map)));
+
+    HttpClientResponse response = await request.close();
+
+    String reply = await response.transform(utf8.decoder).join();
+
+    client.badCertificateCallback = null;
+
+    if (reply == "True") {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   void _toggleSignup() {

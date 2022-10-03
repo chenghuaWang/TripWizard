@@ -27,7 +27,7 @@ class _SocialPageState extends State<SocialPage>
               child: IconButton(
                 icon: const Icon(Icons.subject, color: Colors.black38,),
                 onPressed: () {
-
+                  Scaffold.of(context).openDrawer();
                 },
               ),
             ),
@@ -139,10 +139,7 @@ class _SocialPageState extends State<SocialPage>
   }
 
   Widget _buildRecommendDetails(BuildContext context) {
-    return Column(
-      children: [
-      ],
-    );
+    return SocialRecommendDetails();
   }
 
   Widget _buildStarDetails(BuildContext context) {

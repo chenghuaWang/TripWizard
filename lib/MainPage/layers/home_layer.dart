@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
           child: IconButton(
             icon: const Icon(Icons.subject, color: Colors.black38,),
             onPressed: () {
-
+              Scaffold.of(context).openDrawer();
             },
           ),
         ),

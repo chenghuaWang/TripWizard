@@ -39,6 +39,8 @@ class _MapLocationState extends State<MapLocationDetails> with SingleTickerProvi
               ),
               Row(
                 children: [
+                  // TODO
+                  // the fancy widget can be download at https://www.getwidget.dev/
                   Icon(Icons.star, color: Colors.redAccent,),
                   Icon(Icons.star, color: Colors.redAccent,),
                   Icon(Icons.star, color: Colors.redAccent,),

@@ -11,6 +11,8 @@ class ExploreGrids extends StatefulWidget {
 }
 
 class _ExploreGridsState extends State<ExploreGrids> {
+  VideoDataMaintainer videoDispatcher = VideoDataMaintainer();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,28 +23,20 @@ class _ExploreGridsState extends State<ExploreGrids> {
         crossAxisSpacing: 12.0,
         itemCount: 10,
         itemBuilder: (BuildContext context, int index){
+
+          var tmpData = videoDispatcher.getData();
+
           return GestureDetector(
             onTap: () => {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context)=> VideoDetails(VideoDataPayload(
-                  "Never gonna give you up",
-                  "Never gonna give you up",
-                  "Never gonna give you up",
-                  "Never gonna give you up",
-                  '''
-                  <iframe src="https://player.bilibili.com/player.html?aid=80433022&bvid=BV1GJ411x7h7&cid=137649199&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-                  ''',
-                  "Never gonna give you up",
-                  "Never gonna give you up",
-                  "Never gonna give you up",
-                )))
+                MaterialPageRoute(builder: (context)=> VideoDetails(tmpData))
               )
             },
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/login_head.jpg'),
+                  image: NetworkImage(tmpData.videoHeadPicUrl),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -54,15 +48,15 @@ class _ExploreGridsState extends State<ExploreGrids> {
                       padding: const EdgeInsets.all(10.0),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.location_on,
                             size: 15,
                             color: Colors.white,
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(
-                            'HangZhou',
-                            style: TextStyle(
+                            tmpData.location,
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontFamily: 'Ubuntu-Regular'),
@@ -76,7 +70,7 @@ class _ExploreGridsState extends State<ExploreGrids> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.thumb_up,
                           size: 15,
