@@ -56,6 +56,8 @@ dev_dependencies:
   getwidget: ^3.0.1
   dio: ^4.0.6
   comment_box: ^0.0.17
+  cached_network_image: ^3.2.2
+  intl: ^0.17.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -102,6 +104,7 @@ flutter:
   assets:
     - assets/images/
     - assets/localData/
+    - assets/
 
   fonts:
     - family: WorkSansSemiBold

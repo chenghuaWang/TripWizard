@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
         controller: _pageController,
         onPageChanged: onPageChanged,
         // children: List.generate(4, (index) => const Home()),
-        children: const [
+        children: [
           Home(),
           VideoPage(),
           MapPage(),
