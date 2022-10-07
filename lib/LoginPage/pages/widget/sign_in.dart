@@ -6,6 +6,9 @@ import 'package:trip_wizard/LoginPage/widget/snakbar.dart';
 import 'dart:convert';
 import 'dart:io';
 
+// import the Global primitives
+import 'package:trip_wizard/GlobalState/primitive.dart';
+
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
 
@@ -283,6 +286,8 @@ class _SignInState extends State<SignIn> {
           const Text('正在登录'),
           backgroundColor: Colors.lightGreen
       );
+      PRIMITIVES.m_logined = true;
+      PRIMITIVES.m_userName = loginEmailController.text;
       Navigator.of(context).pop('/login');
       Navigator.of(context).pushNamed('/main');
     } else {

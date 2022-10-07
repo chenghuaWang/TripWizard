@@ -5,6 +5,7 @@ import 'package:trip_wizard/MainPage/utils/const.dart';
 import 'package:trip_wizard/MainPage/layers/social_hot_details.dart';
 import 'package:trip_wizard/MainPage/layers/social_recommend_details.dart';
 import 'package:trip_wizard/MainPage/layers/social_star_details.dart';
+import 'package:trip_wizard/MainPage/layers/social_publish_layer.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
@@ -93,18 +94,29 @@ class _SocialPageState extends State<SocialPage>
                           value: 'Push',
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const <Widget>[
-                              Icon(
-                                Icons.question_mark,
-                                color: Colors.teal,
-                                size: 16,
-                              ),
-                              Text(
-                                '提问',
-                                style: TextStyle(
-                                    fontSize: 14
+                            children: <Widget>[
+                              GestureDetector(
+                                onTap: ()=>{
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context)=>const SocialPublishPage())
+                                  )
+                                },
+                                child: Row(
+                                  children: const [
+                                    Icon(
+                                      Icons.question_mark,
+                                      color: Colors.teal,
+                                      size: 16,
+                                    ),
+                                    Text(
+                                      '提问',
+                                      style: TextStyle(
+                                          fontSize: 14
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
+                              )
                             ],
                           ),
                         ),
