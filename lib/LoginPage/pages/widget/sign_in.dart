@@ -300,7 +300,7 @@ class _SignInState extends State<SignIn> {
   }
 
   Future<bool> _login_http_post() async {
-    HttpClient client = new HttpClient();
+    HttpClient client = HttpClient();
     client.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
 
     String url ='https://ketnekonas.hopto.org:21669/login/';

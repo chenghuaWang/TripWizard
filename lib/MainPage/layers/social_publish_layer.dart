@@ -52,7 +52,6 @@ class _SocialPublishPageState extends State<SocialPublishPage> {
           GestureDetector(
             onTap: ()=>{
               _pushMarkdown(),
-              Navigator.of(context).pop()
             },
             child: Row(
               children: const [
@@ -103,16 +102,16 @@ class _SocialPublishPageState extends State<SocialPublishPage> {
   Future<void> _pushMarkdown() async {
     String src_mk = _controller.text;
 
-    HttpClient client = new HttpClient();
+    HttpClient client = HttpClient();
     client.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
 
-    String url ='https://ketnekonas.hopto.org:21669/text/add';
+    String url ='https://ketnekonas.hopto.org:21669/text/add/';
 
     Map map = {
-      "User": PRIMITIVES.m_userName,
+      "Username": PRIMITIVES.m_userName,
       "Text": src_mk,
       "Title": _title_ctrl.text,
-      "Abstract": src_mk.substring(0, 64)
+      "Abstract": "No"
     };
 
     HttpClientRequest request = await client.postUrl(Uri.parse(url));
@@ -125,6 +124,10 @@ class _SocialPublishPageState extends State<SocialPublishPage> {
 
     String reply = await response.transform(utf8.decoder).join();
 
+    print(reply);
+
     client.badCertificateCallback = null;
+
+    Navigator.of(context).pop();
   }
 }

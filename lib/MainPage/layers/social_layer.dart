@@ -155,8 +155,6 @@ class _SocialPageState extends State<SocialPage>
   }
 
   Widget _buildStarDetails(BuildContext context) {
-    return Column(
-
-    );
+    return SocialStarDetails();
   }
 }

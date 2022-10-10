@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:trip_wizard/MainPage/layers/usr_detail.dart';
 
+import 'package:trip_wizard/flat_widgets/flat_action_btn.dart';
+import 'package:trip_wizard/flat_widgets/flat_add_story_btn.dart';
+import 'package:trip_wizard/flat_widgets/flat_chat_item.dart';
+import 'package:trip_wizard/flat_widgets/flat_counter.dart';
+import 'package:trip_wizard/flat_widgets/flat_page_header.dart';
+import 'package:trip_wizard/flat_widgets/flat_page_wrapper.dart';
+import 'package:trip_wizard/flat_widgets/flat_profile_image.dart';
+import 'package:trip_wizard/flat_widgets/flat_section_header.dart';
+
 class UsrPage extends StatefulWidget {
   const UsrPage({super.key});
 
@@ -189,73 +198,55 @@ class _UsrPageState extends State<UsrPage> with SingleTickerProviderStateMixin{
                         width: 0,
                         height: 10,
                       ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 12,
-                            height: 0,
-                          ),
-                          Icon(Icons.group, color: Colors.teal,),
-                          SizedBox(
-                            width: 12,
-                            height: 0,
-                          ),
-                          Text(
-                              '加入的群组'
-                          )
-                        ],
-                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 12,
                       ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
+                      FlatSectionHeader(
+                        title: "加入的群组",
+                        textColor: Colors.teal,
+                      ),
+                      Container(
+                        height: 76.0,
+                        margin: EdgeInsets.symmetric(
+                          vertical: 16.0,
+                        ),
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
                           children: [
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text(
-                                'test',
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 16.0,
                               ),
+                              child: FlatAddStoryBtn(),
                             ),
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text('test'),
+                            FlatProfileImage(
+                              imageUrl: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
+                              onlineIndicator: true,
+                              outlineIndicator: true,
                             ),
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text('test'),
+                            FlatProfileImage(
+                              outlineIndicator: true,
+                              onlineIndicator: true,
+                              imageUrl: "https://images.unsplash.com/photo-1502323777036-f29e3972d82f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
                             ),
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text('test'),
+                            FlatProfileImage(
+                              outlineIndicator: true,
+                              imageUrl: "https://images.unsplash.com/photo-1582721244958-d0cc82a417da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2179&q=80",
                             ),
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text('test'),
+                            FlatProfileImage(
+                              onlineIndicator: true,
+                              outlineIndicator: true,
+                              imageUrl: "https://images.unsplash.com/photo-1583243567239-3727551e0c59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1112&q=80",
                             ),
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text('test'),
+                            FlatProfileImage(
+                              outlineIndicator: true,
                             ),
-                            Container(
-                              margin: const EdgeInsets.all(5.0),
-                              height: 20.0,
-                              width: 80.0,
-                              child: Text('test'),
+                            FlatProfileImage(
+                              outlineIndicator: true,
+                            ),
+                            FlatProfileImage(
+                              outlineIndicator: true,
                             )
                           ],
                         ),
