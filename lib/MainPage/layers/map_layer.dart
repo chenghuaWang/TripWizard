@@ -8,6 +8,7 @@ import 'package:trip_wizard/MainPage/layers/map_local_page.dart';
 
 // pages
 import 'package:trip_wizard/MainPage/layers/map_location_details.dart';
+import 'package:trip_wizard/MainPage/layers/map_location_details2.dart';
 
 import 'dart:convert';
 
@@ -233,7 +234,7 @@ class _MapPageState extends State<MapPage> with SingleTickerProviderStateMixin {
           ),
           child: IconButton(
             onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MapLocationDetails(v["Name"])));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => Details(rating: -999, imgUrl: "https://img.zcool.cn/community/01681f5d2854bfa80120b5abea30e0.jpg@1280w_1l_2o_100sh.jpg", placeName: v["Name"].toString(),)));
             },
             icon: const Icon(
               Icons.restaurant,

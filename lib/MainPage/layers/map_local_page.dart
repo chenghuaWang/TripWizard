@@ -46,6 +46,7 @@ class _MapLocalPageState extends State<MapLocalPage> with SingleTickerProviderSt
                     ),
                   ),
                   const Spacer(),
+
                 ],
               ),
               _buildDetials(),

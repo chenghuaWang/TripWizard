@@ -88,7 +88,7 @@ class _SocialStarDetailsState extends State<SocialStarDetails> {
             imageUrl: "https://cdn.dribbble.com/users/1281912/avatars/normal/febecc326c76154551f9d4bbab73f97b.jpg?1468927304",
             onlineIndicator: true,
           ),
-          message: "Hello World!, Welcome to Flat Social - Flutter UI Kit.",
+          message: "Hello World!",
           multiLineMessage: true,
           counter: FlatCounter(
             text: "1",

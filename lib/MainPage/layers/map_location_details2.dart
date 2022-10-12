@@ -2,6 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_wizard/MainPage/layers/home_layer.dart';
 
+import 'package:trip_wizard/flat_widgets/flat_add_story_btn.dart';
+import 'package:trip_wizard/flat_widgets/flat_profile_image.dart';
+import 'package:trip_wizard/flat_widgets/flat_section_header.dart';
+
 class Details extends StatefulWidget {
   final String imgUrl;
   final String placeName;
@@ -96,16 +100,18 @@ class _DetailsState extends State<Details> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 23),
+                                    fontSize: 23
+                                ),
                               ),
                               SizedBox(
                                 height: 12,
                               ),
+
                               Row(
                                 children: [
                                   Icon(
                                     Icons.location_on,
-                                    color: Colors.white70,
+                                    color: Colors.white,
                                     size: 25,
                                   ),
                                   SizedBox(
@@ -164,7 +170,7 @@ class _DetailsState extends State<Details> {
                 children: [
                   FeaturesTile(
                     icon: Icon(Icons.wifi, color: Color(0xff5A6C64)),
-                    label: "Free Wi-Fi",
+                    label: "Free Wi-Fi\n",
                   ),
                   FeaturesTile(
                     icon: Icon(Icons.beach_access, color: Color(0xff5A6C64)),
@@ -187,8 +193,77 @@ class _DetailsState extends State<Details> {
                   children: [DetailsCard(), DetailsCard()],
                 ),
               ),
-              SizedBox(
-                height: 8,
+              Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Container(
+                    // decoration: const BoxDecoration(
+                    //   color: Colors.white,
+                    //   boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 8)],
+                    //   borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                    // ),
+                    child: Column(
+                      children: [
+                        // SizedBox(
+                        //   width: 0,
+                        //   height: 10,
+                        // ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width,
+                        //   height: 12,
+                        // ),
+                        FlatSectionHeader(
+                          title: "相关的群组",
+                          textColor: Colors.teal,
+                        ),
+                        Container(
+                          height: 76.0,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 16.0,
+                                ),
+                                child: FlatAddStoryBtn(),
+                              ),
+                              FlatProfileImage(
+                                imageUrl:
+                                "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
+                                onlineIndicator: true,
+                                outlineIndicator: true,
+                              ),
+                              FlatProfileImage(
+                                outlineIndicator: true,
+                                onlineIndicator: true,
+                                imageUrl:
+                                "https://images.unsplash.com/photo-1502323777036-f29e3972d82f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+                              ),
+                              FlatProfileImage(
+                                outlineIndicator: true,
+                                imageUrl:
+                                "https://images.unsplash.com/photo-1582721244958-d0cc82a417da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2179&q=80",
+                              ),
+                              FlatProfileImage(
+                                onlineIndicator: true,
+                                outlineIndicator: true,
+                                imageUrl:
+                                "https://images.unsplash.com/photo-1583243567239-3727551e0c59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1112&q=80",
+                              ),
+                              FlatProfileImage(
+                                outlineIndicator: true,
+                              ),
+                              FlatProfileImage(
+                                outlineIndicator: true,
+                              ),
+                              FlatProfileImage(
+                                outlineIndicator: true,
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 24),
@@ -274,7 +349,7 @@ class DetailsCard extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    "8.0/10",
+                    "-99.0/10",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 14,

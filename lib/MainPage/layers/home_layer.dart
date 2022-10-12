@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:trip_wizard/MainPage/utils/const.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
-import 'package:trip_wizard/MainPage/widget/social_base.dart';
+import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
+import 'package:trip_wizard/MainPage/layers/map_location_details2.dart';
+import 'package:trip_wizard/MainPage/utils/const.dart';
 import 'package:trip_wizard/MainPage/widget/section_title.dart';
+import 'package:trip_wizard/MainPage/widget/social_base.dart';
 import 'package:trip_wizard/MainPage/widget/social_cards.dart';
 import 'package:trip_wizard/MainPage/widget/social_spot.dart';
-
-import 'package:trip_wizard/MainPage/layers/map_location_details2.dart';
 
 class PopularTourModel {
   late String imgUrl;
@@ -217,9 +216,7 @@ class _HomeState extends State<Home> {
       children: [
         SectionTitle(
           title: "在线的群组",
-          press: () {
-
-          },
+          press: () {},
         ),
         const VerticalSpacing(of: 20),
         SingleChildScrollView(
@@ -229,7 +226,7 @@ class _HomeState extends State<Home> {
             children: [
               ...List.generate(
                 travelSpots.length,
-                    (index) => Padding(
+                (index) => Padding(
                   padding: EdgeInsets.only(
                       left: getProportionateScreenWidth(kDefaultPadding)),
                   child: PlaceCard(
@@ -249,9 +246,7 @@ class _HomeState extends State<Home> {
         ),
         SectionTitle(
           title: "Top 的旅行者",
-          press: () {
-
-          },
+          press: () {},
         ),
         Container(
           margin: EdgeInsets.symmetric(
@@ -269,11 +264,9 @@ class _HomeState extends State<Home> {
             children: [
               ...List.generate(
                 topTravelers.length,
-                    (index) => UserCard(
+                (index) => UserCard(
                   user: topTravelers[index],
-                  press: () {
-
-                  },
+                  press: () {},
                 ),
               ),
             ],
@@ -281,6 +274,32 @@ class _HomeState extends State<Home> {
         )
       ],
     );
+  }
+
+  List<Widget> _buildDo() {
+    List<Widget> tmp = [];
+    for (int i = 0; i < 20; ++i) {
+      tmp.add(GFCard(
+        boxFit: BoxFit.cover,
+        titlePosition: GFPosition.start,
+        image: Image.asset(
+          'assets/images/4090.jfif',
+          height: MediaQuery.of(context).size.height * 0.2,
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
+        ),
+        showImage: true,
+        title: GFListTile(
+          avatar: GFAvatar(
+            backgroundImage: AssetImage('assets/images/avatar.jpg'),
+          ),
+          titleText: 'Game Controllers',
+          subTitleText: 'PlayStation 5',
+        ),
+        content: Text("PS 5 is awesome, but 4090 is better!!!"),
+      ));
+    }
+    return tmp;
   }
 
   @override
@@ -363,71 +382,79 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "发现好玩的去处",
-                  style: TextStyle(
-                      fontSize: 28,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text(
-                  "热门国家",
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Container(
-                  height: 240,
-                  child: ListView.builder(
-                      itemCount: country.length,
-                      shrinkWrap: true,
-                      physics: const ClampingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return CountryListTile(
-                          label: country[index].label,
-                          countryName: country[index].countryName,
-                          noOfTours: country[index].noOfTours,
-                          rating: country[index].rating,
-                          imgUrl: country[index].imgUrl,
-                        );
-                      }),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text(
-                  "热门地点",
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: const ClampingScrollPhysics(),
-                    itemCount: popularTourModels.length,
-                    itemBuilder: (context, index) {
-                      return PopularTours(
-                        desc: popularTourModels[index].desc,
-                        imgUrl: popularTourModels[index].imgUrl,
-                        title: popularTourModels[index].title,
-                        price: popularTourModels[index].price,
-                        rating: popularTourModels[index].rating,
-                      );
-                    }),
-                _buildSocialList(),
-              ],
+                    const Text(
+                      "发现好玩的去处",
+                      style: TextStyle(
+                          fontSize: 28,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    const Text(
+                      "热门国家",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Container(
+                      height: 240,
+                      child: ListView.builder(
+                          itemCount: country.length,
+                          shrinkWrap: true,
+                          physics: const ClampingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return CountryListTile(
+                              label: country[index].label,
+                              countryName: country[index].countryName,
+                              noOfTours: country[index].noOfTours,
+                              rating: country[index].rating,
+                              imgUrl: country[index].imgUrl,
+                            );
+                          }),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    const Text(
+                      "热门地点",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    ListView.builder(
+                        shrinkWrap: true,
+                        physics: const ClampingScrollPhysics(),
+                        itemCount: popularTourModels.length,
+                        itemBuilder: (context, index) {
+                          return PopularTours(
+                            desc: popularTourModels[index].desc,
+                            imgUrl: popularTourModels[index].imgUrl,
+                            title: popularTourModels[index].title,
+                            price: popularTourModels[index].price,
+                            rating: popularTourModels[index].rating,
+                          );
+                        }),
+                    _buildSocialList(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    SectionTitle(
+                      title: "动态",
+                      press: () {},
+                    )
+                  ] +
+                  _buildDo(),
             )),
       ),
     );
@@ -457,10 +484,10 @@ class PopularTours extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => Details(
-                  imgUrl: imgUrl,
-                  placeName: title,
-                  rating: rating,
-                )));
+                      imgUrl: imgUrl,
+                      placeName: title,
+                      rating: rating,
+                    )));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -670,7 +697,8 @@ class CountryListTile extends StatelessWidget {
 }
 
 class UserCard extends StatelessWidget {
-  const UserCard({super.key,
+  const UserCard({
+    super.key,
     required this.user,
     required this.press,
   });
